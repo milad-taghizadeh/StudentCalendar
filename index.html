@@ -4,20 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./dist/output.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>مهندسی نرم افزار</title>
 
 </head>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
 
-<body class="bg-gray-500 ">
-    <h1>hi</h1>
+<body>
+    <div class="container w-[1200px] justify-center ">
+        <div class="flex w-full flex-row gap-x-10 ">
+            <!-- admin side -->
+            <section class="flex flex-col rounded-xl h-screen gap-y-14 w-[400px] px-10  bg-gray-100 py-4">
+                <label class="flex flex-col justify-center items-center font-extrabold text-2xl" for=""><span>TITLE -- TITLE</span></label>
+                <div class="flex flex-col gap-y-5">
+                    <button onclick="showSection(1)"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">Section
+                        1</button>
+                    <button onclick="showSection(2)"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">Section
+                        2</button>
+                    <button onclick="showSection(3)"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">Section
+                        3</button>
+                    <button onclick="showSection(4)"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">Section
+                        4</button>
+                    <button onclick="showSection(5)"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">Section
+                        5</button>
+                </div>
+
+            </section>
 
 
-
+            <!-- admin section -->
+            <div id="section1" class="w-3/4 p-4">
+                <h2>Section 1</h2>
+                <p>This is the content of section 1.</p>
+            </div>
+            <div id="section2" class="w-3/4 p-4 hidden">
+                <h2>Section 2</h2>
+                <p>This is the content of section 2.</p>
+            </div>
+            <div id="section3" class="w-3/4 p-4 hidden">
+                <h2>Section 3</h2>
+                <p>This is the content of section 3.</p>
+            </div>
+            <div id="section4" class="w-3/4 p-4 hidden">
+                <h2>Section 4</h2>
+                <p>This is the content of section 4.</p>
+            </div>
+            <div id="section5" class="w-3/4 p-4 hidden">
+                <h2>Section 5</h2>
+                <p>This is the content of section 5.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="./js/app.js"></script>
 </body>
+
 
 </html>
