@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@majidh1/jalalidatepicker": "^0.9.4",
+    "tailwindcss": "^3.4.0"
+  }
+}
