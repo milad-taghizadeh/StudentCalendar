@@ -33,22 +33,3 @@ fetch('http://localhost:3000/api/user/', {
         document.getElementById('phonenumber').innerHTML = `<span>شماره تماس : </span><span>${data.phonenumber}</span>`
     })
     .catch(error => console.error(error))
-
-// ADD EVENT 
-let eventName = document.getElementById('evname').value;
-let eventSub = document.getElementById('evsub').value;
-let eventDate = document.getElementById('evdate').value;
-let eventCaption = document.getElementById('evcaption').value;
-const sendEventReq = {
-    title: eventName,
-    subject: eventSub,
-    describtion: eventCaption,
-    date: eventDate
-}
-fetch('localhost:3000/api/event/', {
-    credentials: 'include',
-    method: 'POST',
-    headers: {
-        'content-type': 'application/json'
-    }
-})

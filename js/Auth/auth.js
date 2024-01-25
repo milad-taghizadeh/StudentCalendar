@@ -1,5 +1,3 @@
-// const { use } = require("../backend/routes/auth.route");
-
 // login
 function login() {
     let username = document.getElementById("loginUsername").value;
@@ -19,14 +17,11 @@ function login() {
         .then(response => response.json)
         .then(loginReq => {
             console.log("Login Success : ", loginReq);
-            
+
         })
         .catch(error => console.error("Login Rejected", error));
     console.log("Login:", username, password);
 }
-
-
-
 // signup
 function signup() {
     let username = document.getElementById("signupUsername").value;
@@ -48,9 +43,9 @@ function signup() {
         },
         body: JSON.stringify(signupReq)
     })
-    .then(response => response.json)
-    .then(signupReq => {
-        console.log("sign up Success : ", signupReq);
-    })
+        .then(response => response.json)
+        .then(signupReq => {
+            console.log("sign up Success : ", signupReq);
+        })
     console.log("Sign Up:", username, password, email, phone);
 }
