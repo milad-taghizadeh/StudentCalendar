@@ -29,9 +29,11 @@ app.use(express.json());
 const authRouter = require("./routes/auth.route");
 const userRouter = require("./routes/user.route");
 const workReportRouter = require("./routes/work_reort.route");
+const eventRouter = require("./routes/event.route");
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/dailyWorkReport", workReportRouter);
+app.use("/api/event", eventRouter);
 
 mongoose
   .connect(process.env.MONGO_URL)
