@@ -64,7 +64,7 @@ const logInController = async (req, res) => {
           isAdmin: user.isAdmin,
           email: user.email,
         },
-        process.env.JWT_SEC_key,
+        process.env.JWT_SEC_KEY,
         { expiresIn: "6h" }
       );
 

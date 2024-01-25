@@ -1,6 +1,9 @@
-const { use } = require("../backend/routes/auth.route");
+// const { use } = require("../backend/routes/auth.route");
 
 // login
+const LoginButton = document.getElementById('login')
+console.log(LoginButton)
+document.getElementById('login').addEventListener('click',login);
 function login() {
     let username = document.getElementById("loginUsername").value;
     let password = document.getElementById("loginPassword").value;
@@ -23,6 +26,9 @@ function login() {
         .catch(error => console.error("Login Rejected", error));
     console.log("Login:", username, password);
 }
+
+
+
 // signup
 function signup() {
     let username = document.getElementById("signupUsername").value;
