@@ -1,10 +1,12 @@
+const { use } = require("../backend/routes/auth.route");
 
+// login
 function login() {
     let username = document.getElementById("loginUsername").value;
     let password = document.getElementById("loginPassword").value;
     const loginReq = {
-        "email": username,
-        "password": password
+        email: username,
+        password: password
     }
     fetch('http://localhost:3000/api/auth/login', {
         method: 'POST',
@@ -21,14 +23,30 @@ function login() {
         .catch(error => console.error("Login Rejected", error));
     console.log("Login:", username, password);
 }
-
+// signup
 function signup() {
     let username = document.getElementById("signupUsername").value;
     let password = document.getElementById("signupPassword").value;
     let email = document.getElementById("signupEmail").value;
     let phone = document.getElementById("signupPhone").value;
 
-    // Perform sign-up logic here
+    const signupReq = {
+        email: email,
+        phoneNumber: phone,
+        password: password,
+        username: username
+    }
 
+    fetch('http://localhost:3000/api/auth/register', {
+        method: POST,
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(signupReq)
+    })
+    .then(response => response.json)
+    .then(signupReq => {
+        console.log("sign up Success : ", signupReq);
+    })
     console.log("Sign Up:", username, password, email, phone);
 }
