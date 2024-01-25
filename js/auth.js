@@ -1,9 +1,6 @@
 // const { use } = require("../backend/routes/auth.route");
 
 // login
-const LoginButton = document.getElementById('login')
-console.log(LoginButton)
-document.getElementById('login').addEventListener('click',login);
 function login() {
     let username = document.getElementById("loginUsername").value;
     let password = document.getElementById("loginPassword").value;
@@ -22,6 +19,7 @@ function login() {
         .then(response => response.json)
         .then(loginReq => {
             console.log("Login Success : ", loginReq);
+            
         })
         .catch(error => console.error("Login Rejected", error));
     console.log("Login:", username, password);
@@ -38,13 +36,13 @@ function signup() {
 
     const signupReq = {
         email: email,
-        phoneNumber: phone,
+        phonenumber: phone,
         password: password,
         username: username
     }
 
     fetch('http://localhost:3000/api/auth/register', {
-        method: POST,
+        method: 'POST',
         headers: {
             'content-type': 'application/json'
         },

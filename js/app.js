@@ -18,3 +18,17 @@ function showSection(sectionNumber) {
     const selectedSection = document.getElementById(`section${sectionNumber}`);
     selectedSection.classList.remove('hidden');
 }
+// Show user info on index admin section
+fetch('http://localhost:3000/api/user/', {
+    credentials: "include",
+    headers: {
+        'Cookie': 'accessToken'
+    }
+})
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        document.getElementById('username').innerHTML = `<span>نام کاربری : </span><span>${data.username}</span>`
+        document.getElementById('email').innerHTML = `<span>آدرس ایمیل : </span><span>${data.email}</span>`
+        document.getElementById('phonenumber').innerHTML = `<span>شماره تماس : </span><span>${data.phonenumber}</span>`
+    })

@@ -9,7 +9,7 @@ const verifyToken = (req, res, next) => {
     //get the TOKEN from the cookies
     const token = req.cookies.accessToken;
     // verify the TOKEN
-    jwt.verify(token, process.env.JWT_SEC_key, (err, user) => {
+    jwt.verify(token, process.env.JWT_SEC_KEY, (err, user) => {
       if (err) {
         res.status(403).json(err);
       } else {
