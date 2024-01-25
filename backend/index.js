@@ -7,8 +7,22 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const allowedOrigins = ["http://localhost:5500", "http://127.0.0.1:5500"];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
+
 const cookieParser = require("cookie-parser");
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 

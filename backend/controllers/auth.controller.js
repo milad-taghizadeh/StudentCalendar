@@ -61,7 +61,6 @@ const logInController = async (req, res) => {
       const accessToken = jwt.sign(
         {
           id: user._id,
-          isAdmin: user.isAdmin,
           email: user.email,
         },
         process.env.JWT_SEC_KEY,
