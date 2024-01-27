@@ -47,6 +47,14 @@ const getEventOfDay = async (req, res) => {
       date: { $gt: startOfDay, $lt: endOfDay },
     });
 
+    events.forEach((event) => {
+      const date = jalali(event.date)
+        .format("jYYYY-jMM-jDD ddd")
+        .toLocaleString();
+
+      event._doc.date = date;
+    });
+
     res.status(200).json(events);
   } catch (err) {
     res.status(400).json(err);
@@ -56,18 +64,29 @@ const getEventOfDay = async (req, res) => {
 
 const getEventOfWeek = async (req, res) => {
   try {
+    const today = new Date();
     const startOfWeek = jalali
-      .from(req.body.date, "fa", "YYYY/MM/DD")
+      .from(today, "en", "YYYY/MM/DD")
       .startOf("Week")
+      .subtract(2, "day")
       .toDate(0, 0, 0);
 
     const endOfWeek = jalali
-      .from(req.body.date, "fa", "YYYY/MM/DD")
+      .from(today, "en", "YYYY/MM/DD")
       .endOf("Week")
+      .subtract(2, "day")
       .toDate();
 
     const events = await Event.find({
       date: { $gt: startOfWeek, $lt: endOfWeek },
+    });
+
+    events.forEach((event) => {
+      const date = jalali(event.date)
+        .format("jYYYY-jMM-jDD ddd")
+        .toLocaleString();
+
+      event._doc.date = date;
     });
 
     res.status(200).json(events);
@@ -91,6 +110,14 @@ const getEventOfTwoDates = async (req, res) => {
 
     const events = await Event.find({
       date: { $gt: startDate, $lt: endDate },
+    });
+
+    events.forEach((event) => {
+      const date = jalali(event.date)
+        .format("jYYYY-jMM-jDD ddd")
+        .toLocaleString();
+
+      event._doc.date = date;
     });
 
     res.status(200).json(events);
