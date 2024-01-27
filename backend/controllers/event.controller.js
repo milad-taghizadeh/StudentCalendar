@@ -35,12 +35,12 @@ const getEventOfDay = async (req, res) => {
   try {
     const today = new Date();
     const startOfDay = jalali
-      .from(today, "fa", "YYYY/MM/DD")
+      .from(today, "en", "YYYY/MM/DD")
       .startOf("day")
       .toDate(0, 0, 0);
 
     const endOfDay = jalali
-      .from(today, "fa", "YYYY/MM/DD")
+      .from(today, "en", "YYYY/MM/DD")
       .endOf("day")
       .toDate();
 
