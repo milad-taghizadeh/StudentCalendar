@@ -83,6 +83,14 @@ const getEventOfWeek = async (req, res) => {
         date: { $gt: startDate, $lt: endDate },
       });
 
+      events.forEach((event) => {
+        const date = jalali(event.date)
+          .format("jYYYY-jMM-jDD ddd")
+          .toLocaleString();
+  
+        event._doc.date = date;
+      });
+      
       return res.status(200).json(events);
     }
 

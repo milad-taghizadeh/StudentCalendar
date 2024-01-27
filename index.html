@@ -27,7 +27,7 @@
                         --
                         TITLE</span></label>
                 <div class="flex flex-col gap-y-5">
-                    <button onclick="showSection(1)"
+                    <button onclick="showSection(1);getWeeklyReport()"
                         class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">برنامه
                         کاری هفته</button>
                     <button onclick="showSection(2)"
@@ -60,17 +60,19 @@
             </section>
             <!-- admin section -->
             <div id="section1" class="w-3/4 p-4">
-                <h1 class="text-3xl py-5">برنامه هفته‌گی</h1>
+                <h1 class="text-3xl py-5">برنامه کاری هفته</h1>
                 <div class="flex justify-start items-center gap-x-10 py-5">
                     <label for="">
                         <span>از : </span>
-                        <input type="date">
-                    </label>
+                        <input readonly onclick="jalaliDatepicker.startWatch()" data-jdp class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type=""
+                            name="date" id="sdate"> </label>
                     <label for="">
                         <span>تا : </span>
-                        <input type="date">
-                    </label>
-                    <button>submit</button>
+                        <input readonly onclick="jalaliDatepicker.startWatch()" data-jdp class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="" name="date"
+                            id="edate"> </label>
+                            <button type="submit" id="refresh"
+                            class="w-32 h-10 bg-sky-400 mr-96 rounded-lg text-white hover:bg-sky-600 duration-150">ثبت
+                        </button>
                 </div>
                 <div class="flex justify-center items-center gap-y-5 flex-col">
                     <!-- Shanbe -->

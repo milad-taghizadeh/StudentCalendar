@@ -1,6 +1,15 @@
 // get weekly report of events
 const getWeeklyReport = () => {
-    fetch('http://localhost:3000/api/event/byWeek', {
+    document.getElementById('satev').innerHTML = "";
+    document.getElementById('sunev').innerHTML = "";
+    document.getElementById('monev').innerHTML = "";
+    document.getElementById('tueev').innerHTML = "";
+    document.getElementById('wedev').innerHTML = "";
+    document.getElementById('thuev').innerHTML = "";
+    document.getElementById('friev').innerHTML = "";
+    const startDate = "startDate=" + document.getElementById('sdate').value;
+    const endDate = "endDate=" + document.getElementById('edate').value;
+    fetch(`http://localhost:3000/api/event/byWeek?${startDate}&&${endDate}`, {
         credentials: 'include',
         headers: {
             'Cookie': 'accessToken'
@@ -9,6 +18,7 @@ const getWeeklyReport = () => {
         .then(response => response.json())
         .then(data => {
             data.forEach(item => {
+                document.getElementById('refresh').addEventListener('click', getWeeklyReport)
                 const date = item.date.split(' ');
                 date.forEach(day => {
                     switch (day) {
@@ -147,4 +157,5 @@ const getWeeklyReport = () => {
         })
         .catch(error => console.error(error));
 }
+
 getWeeklyReport();
