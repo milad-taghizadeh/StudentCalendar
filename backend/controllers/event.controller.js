@@ -87,10 +87,10 @@ const getEventOfWeek = async (req, res) => {
         const date = jalali(event.date)
           .format("jYYYY-jMM-jDD ddd")
           .toLocaleString();
-  
+
         event._doc.date = date;
       });
-      
+
       return res.status(200).json(events);
     }
 
@@ -98,13 +98,13 @@ const getEventOfWeek = async (req, res) => {
     const startOfWeek = jalali
       .from(today, "en", "YYYY/MM/DD")
       .startOf("Week")
-      .add(5, "day")
+      .subtract(1, "day")
       .toDate(0, 0, 0);
 
     const endOfWeek = jalali
       .from(today, "en", "YYYY/MM/DD")
       .endOf("Week")
-      .add(5, "day")
+      .subtract(1, "day")
       .toDate();
 
     const events = await Event.find({
