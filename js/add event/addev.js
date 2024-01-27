@@ -1,8 +1,6 @@
 // date picking 
 document.getElementById('evdate').addEventListener('click', () => {
-    console.log(document.getElementById('evdate'));
     jalaliDatepicker.startWatch();
-
 });
 // ADD EVENT 
 const AddEvent = () => {
@@ -27,6 +25,8 @@ const AddEvent = () => {
         .then(response => response.json)
         .then(sendEventReq => {
             console.log('added event : ', sendEventReq);
+            location.href='';
         })
+        .catch(error => console.error (error));
     console.log('details', eventName, eventSub, eventDate, eventCaption);
 }

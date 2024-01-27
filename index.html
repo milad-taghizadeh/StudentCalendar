@@ -18,7 +18,7 @@
 </style>
 </head>
 
-<body>red
+<body>
     <div class="container w-[2500px] justify-center ">
         <div class="flex w-full flex-row gap-x-10 ">
             <!-- admin side -->
@@ -79,63 +79,75 @@
                             <h3>روز شنبه</h3>
                         </div>
                         <!-- Event section-->
-                        <div class="flex w-full justify-center items-center flex-col gap-y-3">
+                        <div id="satev" class="flex w-full justify-center items-center flex-col gap-y-3">
                             <!-- event box -->
-                            <div class="flex w-full h-48 bg-blue-100 rounded-3xl">
-                                <div class="flex flex-row w-full justify-center items-center p-5">
-                                    <div class="flex w-1/2 h-full flex-col gap-y-4">
-                                        <h1 class="text-2xl font-bold">سلام بر همگی</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur
-                                            aspernatur tenetur deserunt obcaecati facilis. Iste nemo optio repellat
-                                            dolorum incidunt id commodi, voluptate dolorem totam magnam, quibusdam
-                                            perferendis, doloremque quod?</p>
-                                    </div>
-                                    <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
-                                        <p class="text-lg font-bold">1382/8/16</p>
-                                        <p class="text-lg font-bold">معارف اسلامی</p>
-                                        <button type="submit"
-                                            class="w-32 h-10 bg-red-500 mr-96 rounded-lg text-white hover:bg-red-600 duration-150">DELETE
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
                             <!-- end event box -->
                         </div>
                     </div>
                     <!-- Yekshanbe -->
-                    <div class="flex justify-center items-center w-full">
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
                         <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
                             <h3>روز یکشنبه</h3>
                         </div>
+                        <!-- Event section-->
+                        <div id="sunev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
                     </div>
                     <!-- doshanbe -->
-                    <div class="flex justify-center items-center w-full">
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
                         <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
                             <h3>روز دوشنبه</h3>
                         </div>
+                        <!-- Event section-->
+                        <div id="monev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
                     </div>
                     <!-- seshanbe -->
-                    <div class="flex justify-center items-center w-full">
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
                         <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
                             <h3>روز سه شنبه</h3>
                         </div>
+                        <!-- Event section-->
+                        <div id="tueev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
                     </div>
                     <!-- 4shanbe -->
-                    <div class="flex justify-center items-center w-full">
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
                         <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
                             <h3>روز چهارشنبه</h3>
                         </div>
+                        <!-- Event section-->
+                        <div id="wedev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
                     </div>
                     <!-- 5shanbe -->
-                    <div class="flex justify-center items-center w-full">
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
                         <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
                             <h3>روز پنجشنبه</h3>
                         </div>
+                        <!-- Event section-->
+                        <div id="thuev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
                     </div>
                     <!-- jomee -->
-                    <div class="flex justify-center items-center w-full">
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
                         <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
                             <h3>روز جمعه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="friev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
                         </div>
                     </div>
                 </div>
@@ -173,11 +185,11 @@
                     </label>
                     <label class="flex felx-row items-center gap-x-4 justify-center" for="name">
                         <span>توضیحات : </span>
-                        <textarea class="border py-5 px-5 border-gray-400 bg-gray-100 rounded-lg" name=""
-                            cols="30" rows="10" id="evcaption"></textarea>
+                        <textarea class="border py-5 px-5 border-gray-400 bg-gray-100 rounded-lg" name="" cols="30"
+                            rows="10" id="evcaption"></textarea>
                     </label>
                     <button type="submit" onclick="AddEvent()"
-                    class="w-32 h-10 bg-blue-500 rounded-lg text-white hover:bg-blue-600 duration-150">ثبت</button>
+                        class="w-32 h-10 bg-blue-500 rounded-lg text-white hover:bg-blue-600 duration-150">ثبت</button>
                 </div>
             </div>
             <div id="section4" class="w-3/4 p-4 hidden">
@@ -191,8 +203,10 @@
         </div>
     </div>
     <script src="./js/app.js"></script>
-    <script src="./js/Add event/addev.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
+    <script src="./js/event report/weekly report/weeklyrep.js"></script>
+    <script src="./js/add event/addev.js"></script>
+    <script type="text/javascript"
+        src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
 </body>
 
 
