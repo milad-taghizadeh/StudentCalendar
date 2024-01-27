@@ -33,13 +33,14 @@ const deleteEvent = async (req, res) => {
 
 const getEventOfDay = async (req, res) => {
   try {
+    const today = new Date();
     const startOfDay = jalali
-      .from(req.body.date, "fa", "YYYY/MM/DD")
+      .from(today, "fa", "YYYY/MM/DD")
       .startOf("day")
       .toDate(0, 0, 0);
 
     const endOfDay = jalali
-      .from(req.body.date, "fa", "YYYY/MM/DD")
+      .from(today, "fa", "YYYY/MM/DD")
       .endOf("day")
       .toDate();
 
