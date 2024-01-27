@@ -30,10 +30,12 @@ const authRouter = require("./routes/auth.route");
 const userRouter = require("./routes/user.route");
 const workReportRouter = require("./routes/work_reort.route");
 const eventRouter = require("./routes/event.route");
+const weekProgramRoute = require("./routes/week_program.route");
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/dailyWorkReport", workReportRouter);
 app.use("/api/event", eventRouter);
+app.use("/api/weekProgram", weekProgramRoute);
 
 mongoose
   .connect(process.env.MONGO_URL)

@@ -68,13 +68,13 @@ const getEventOfWeek = async (req, res) => {
     const startOfWeek = jalali
       .from(today, "en", "YYYY/MM/DD")
       .startOf("Week")
-      .subtract(2, "day")
+      .add(5, "day")
       .toDate(0, 0, 0);
 
     const endOfWeek = jalali
       .from(today, "en", "YYYY/MM/DD")
       .endOf("Week")
-      .subtract(2, "day")
+      .add(5, "day")
       .toDate();
 
     const events = await Event.find({
