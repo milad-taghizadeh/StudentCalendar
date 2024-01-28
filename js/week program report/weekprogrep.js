@@ -7,7 +7,6 @@ const getWeekProgRep = () => {
     document.getElementById('thuwp').innerHTML = ''
     document.getElementById('friwp').innerHTML = ''
     const isOddWeek = document.getElementById('weektypeShow').value;
-    console.log(isOddWeek);
     fetch(`http://localhost:3000/api/weekProgram?isOddWeek=${isOddWeek}`, {
         credentials: 'include',
         headers: {

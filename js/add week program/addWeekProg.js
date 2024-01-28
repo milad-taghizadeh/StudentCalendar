@@ -1,4 +1,15 @@
 const AddWeekProg = () => {
+    function showSection(sectionNumber) {
+        // Hide all sections
+        const sections = document.querySelectorAll('[id^="section"]');
+        sections.forEach(section => {
+            section.classList.add('hidden');
+        });
+
+        // Show the selected section
+        const selectedSection = document.getElementById(`section${sectionNumber}`);
+        selectedSection.classList.remove('hidden');
+    }
     const weekType = document.getElementById('weektype').value;
     const day = document.getElementById('day').value;
     const title = document.getElementById('title').value;
@@ -24,7 +35,13 @@ const AddWeekProg = () => {
         },
         body: JSON.stringify(sendWeekProgReq)
     })
-        .then(response => response.json())
+        .then(response => {
+            if (response.status == 200) {
+                showSection(4);
+                return response.json()
+            }
+            else (window.alert('لطفا اطلاعات را به درستی وارد کنید .'))
+        })
         .then(sendWeekProgReq => {
             console.log(sendWeekProgReq);
         })

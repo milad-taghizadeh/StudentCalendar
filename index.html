@@ -24,9 +24,7 @@
         <div class="flex w-full flex-row gap-x-10 ">
             <!-- admin side -->
             <section class="flex flex-col rounded-xl h-screen gap-y-14 w-[400px] px-10 sticky top-0  bg-gray-100 py-4">
-                <label class="flex flex-col justify-center items-center font-extrabold text-2xl" for=""><span>TITLE
-                        --
-                        TITLE</span></label>
+                <label class="flex flex-col justify-center items-center font-extrabold text-2xl" for=""><span>پروژه درس مهندسی نرم افزار</span></label>
                 <div class="flex flex-col gap-y-5">
                     <button onclick="showSection(1);getWeeklyReport()"
                         class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
@@ -43,7 +41,7 @@
                     </button>
                     <button onclick="showSection(5)"
                         class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">ایجاد
-                        رویداد هفتگی جدید
+                        برنامه هفتگی جدید
                     </button>
                 </div>
                 <section class="flex flex-col gap-y-5">
@@ -64,7 +62,7 @@
                     حساب</button>
             </section>
             <!-- barname haftegi -->
-            <div id="section1" class="w-3/4 p-4 hidden">
+            <div id="section1" class="w-3/4 p-4">
                 <h1 class="text-3xl py-5">رویداد های هفته</h1>
                 <div class="flex justify-start items-center gap-x-10 py-5">
                     <label for="">
@@ -200,7 +198,7 @@
                 </div>
             </div>
             <!-- weekly program -->
-            <div id="section4" class="w-3/4 p-4 ">
+            <div id="section4" class="w-3/4 p-4 hidden">
                 <h1 class="text-3xl py-5">برنامه هفتگی</h1>
                 <!-- choose week type -->
                 <div class="flex flex-row items-center gap-x-3">
