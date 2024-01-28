@@ -20,11 +20,13 @@
 </head>
 
 <body>
-    <div class="container w-[2500px] justify-center ">
-        <div class="flex w-full flex-row gap-x-10 ">
+    <div class="container md:w-[2500px] w-full justify-center ">
+        <div class="flex w-full md:flex-row flex-col justify-center gap-x-10 ">
             <!-- admin side -->
-            <section class="flex flex-col rounded-xl h-screen gap-y-14 w-[400px] px-10 sticky top-0  bg-gray-100 py-4">
-                <label class="flex flex-col justify-center items-center font-extrabold text-2xl" for=""><span>پروژه درس مهندسی نرم افزار</span></label>
+            <section
+                class="md:flex flex-col md:rounded-xl h-screen gap-y-14 md:w-[400px] w-full hidden px-10 sticky top-0  bg-gray-100 py-4">
+                <label class="flex flex-col justify-center items-center font-extrabold text-2xl" for=""><span>پروژه درس
+                        مهندسی نرم افزار</span></label>
                 <div class="flex flex-col gap-y-5">
                     <button onclick="showSection(1);getWeeklyReport()"
                         class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
@@ -61,10 +63,32 @@
                 <button class="bg-red-500 text-white py-2 rounded-xl" onclick="location.href ='login.html'">خروج از
                     حساب</button>
             </section>
+            <!-- ADMIN SIDE MOBILE -->
+            <div class="flex flex-row md:hidden p-5 justify-center items-center gap-x-5">
+                <div class="flex flex-row justify-center items-center gap-x-5">
+                    <button onclick="showSection(1);getWeeklyReport()"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
+                        هفته</button>
+                    <button onclick="showSection(2)"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
+                        امروز</button>
+                    <button onclick="showSection(3)"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">ایجاد
+                        یک رویداد</button>
+                    <button onclick="showSection(4)"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">برنامه
+                        هفتگی
+                    </button>
+                    <button onclick="showSection(5)"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">ایجاد
+                        برنامه هفتگی جدید
+                    </button>
+                </div>
+            </div>
             <!-- barname haftegi -->
-            <div id="section1" class="w-3/4 p-4">
+            <div id="section1" class="w-3/4 p-4 hidden">
                 <h1 class="text-3xl py-5">رویداد های هفته</h1>
-                <div class="flex justify-start items-center gap-x-10 py-5">
+                <div class="flex flex-col md:flex-row justify-start items-center gap-y-5 md:gap-x-10 py-5">
                     <label for="">
                         <span>از : </span>
                         <input readonly onclick="jalaliDatepicker.startWatch()" data-jdp
@@ -76,7 +100,7 @@
                             class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="" name="date"
                             id="edate"> </label>
                     <button type="submit" id="refresh"
-                        class="w-32 h-10 bg-sky-400 mr-96 rounded-lg text-white hover:bg-sky-600 duration-150">ثبت
+                        class="flex justify-center items-center w-32 h-10 bg-sky-400 py-4 px-10 rounded-lg text-white hover:bg-sky-600 duration-150">ثبت
                     </button>
                 </div>
                 <div class="flex justify-center items-center gap-y-5 flex-col">
@@ -172,7 +196,7 @@
             <!-- new event -->
             <div id="section3" class="w-3/4 p-4 hidden">
                 <h1 class="py-5 text-3xl">ایجاد رویداد جدید</h1>
-                <div class="flex flex-col justify-center items-center gap-y-10">
+                <div class="flex flex-col justify-start items-start gap-y-10">
                     <label class="flex felx-row items-center gap-x-4 justify-center" for="name">
                         <span>نام رویداد : </span>
                         <input class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="text" name="name"
@@ -190,15 +214,15 @@
                     </label>
                     <label class="flex felx-row items-center gap-x-4 justify-center" for="name">
                         <span>توضیحات : </span>
-                        <textarea class="border py-5 px-5 border-gray-400 bg-gray-100 rounded-lg" name="" cols="30"
-                            rows="10" id="evcaption"></textarea>
+                        <textarea class="border py-5 px-5 border-gray-400 bg-gray-100 rounded-lg" name="" cols="20"
+                            rows="6" id="evcaption"></textarea>
                     </label>
                     <button type="submit" onclick="AddEvent()"
-                        class="w-32 h-10 bg-blue-500 rounded-lg text-white hover:bg-blue-600 duration-150">ثبت</button>
+                        class="flex justify-center items-center w-32 h-10 bg-blue-500 rounded-lg text-white hover:bg-blue-600 duration-150">ثبت</button>
                 </div>
             </div>
             <!-- weekly program -->
-            <div id="section4" class="w-3/4 p-4 hidden">
+            <div id="section4" class="w-3/4 p-4 ">
                 <h1 class="text-3xl py-5">برنامه هفتگی</h1>
                 <!-- choose week type -->
                 <div class="flex flex-row items-center gap-x-3">
@@ -210,7 +234,7 @@
                     </select>
                 </div>
 
-                <div class="flex justify-center items-center mt-5 gap-y-5 flex-col">
+                <div class="flex w-full justify-center items-center mt-5 gap-y-5 flex-col">
 
                     <!-- Shanbe -->
                     <div class="flex justify-center items-center w-full flex-col gap-y-3">
@@ -218,7 +242,8 @@
                             <h3>روز شنبه</h3>
                         </div>
                         <!-- Event section-->
-                        <div id="satwp" class="flex w-full justify-center items-center flex-row gap-x-3">
+                        <div id="satwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
                             <!-- event box -->
 
                             <!-- end event box -->
@@ -230,7 +255,8 @@
                             <h3>روز یکشنبه</h3>
                         </div>
                         <!-- Event section-->
-                        <div id="sunwp" class="flex w-full justify-center items-center flex-row gap-x-3">
+                        <div id="sunwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
                             <!-- event box -->
                             <!-- end event box -->
                         </div>
@@ -241,7 +267,8 @@
                             <h3>روز دوشنبه</h3>
                         </div>
                         <!-- Event section-->
-                        <div id="monwp" class="flex w-full justify-center items-center flex-row gap-x-3">
+                        <div id="monwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
                             <!-- event box -->
                             <!-- end event box -->
                         </div>
@@ -252,7 +279,8 @@
                             <h3>روز سه شنبه</h3>
                         </div>
                         <!-- Event section-->
-                        <div id="tuewp" class="flex w-full justify-center items-center flex-row gap-x-3">
+                        <div id="tuewp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
                             <!-- event box -->
                             <!-- end event box -->
                         </div>
@@ -263,7 +291,8 @@
                             <h3>روز چهارشنبه</h3>
                         </div>
                         <!-- Event section-->
-                        <div id="wedwp" class="flex w-full justify-center items-center flex-row gap-x-3">
+                        <div id="wedwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
                             <!-- event box -->
                             <!-- end event box -->
                         </div>
@@ -274,7 +303,8 @@
                             <h3>روز پنجشنبه</h3>
                         </div>
                         <!-- Event section-->
-                        <div id="thuwp" class="flex w-full justify-center items-center flex-row gap-x-3">
+                        <div id="thuwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
                             <!-- event box -->
                             <!-- end event box -->
                         </div>
@@ -285,7 +315,8 @@
                             <h3>روز جمعه</h3>
                         </div>
                         <!-- Event section-->
-                        <div id="friwp" class="flex w-full justify-center items-center flex-row gap-x-3">
+                        <div id="friwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
                             <!-- event box -->
                             <!-- end event box -->
                         </div>

@@ -23,7 +23,7 @@ const getWeekProgRep = () => {
                         case "sat":
                             const lessonsSat = element.week.sat;
                             lessonsSat.forEach(lesson => {
-                                document.getElementById('satwp').innerHTML += `<div class="flex w-[350px] h-[190px] bg-blue-100 rounded-3xl">
+                                document.getElementById('satwp').innerHTML += `<div class="flex flex-wrap w-[350px] h-[190px] bg-blue-100 rounded-3xl">
                                     <div class="flex flex-row w-full justify-center items-center p-5">
                                         <div class="flex w-1/2 flex-col gap-y-4">
                                             <h1 class="text-2xl font-bold">${lesson.title}</h1>

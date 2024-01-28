@@ -23,7 +23,7 @@ const getWeeklyReport = () => {
                 date.forEach(day => {
                     switch (day) {
                         case "Sat":
-                            document.getElementById('satev').innerHTML += `<div class="flex w-full h-48 bg-blue-100 rounded-3xl">
+                            document.getElementById('satev').innerHTML += `<div class="flex md:w-[750px] w-[400px] h-48 bg-blue-100 rounded-3xl">
                 <div class="flex flex-row w-full justify-center items-center p-5">
                     <div class="flex w-1/2 h-full flex-col gap-y-4">
                         <h1 class="text-2xl font-bold">${item.title}</h1>
@@ -33,117 +33,117 @@ const getWeeklyReport = () => {
                         <p class="text-lg font-bold">${item.date}</p>
                         <p class="text-lg font-bold">${item.subject}</p>
                         <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
-                            class="w-32 h-10 bg-red-500 mr-96 rounded-lg text-white hover:bg-red-600 duration-150">حذف
+                            class="w-32 h-10 bg-red-500 rounded-lg text-white hover:bg-red-600 duration-150">حذف
                         </button>
                     </div>
                 </div>
             </div>`
                             break;
                         case "Sun":
-                            document.getElementById('sunev').innerHTML += `<div class="flex w-full h-48 bg-blue-100 rounded-3xl">
-                <div class="flex flex-row w-full justify-center items-center p-5">
-                    <div class="flex w-1/2 h-full flex-col gap-y-4">
-                        <h1 class="text-2xl font-bold">${item.title}</h1>
-                        <p>${item.description}</p>
-                    </div>
-                    <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
-                        <p class="text-lg font-bold">${item.date}</p>
-                        <p class="text-lg font-bold">${item.subject}</p>
-                        <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
-                            class="w-32 h-10 bg-red-500 mr-96 rounded-lg text-white hover:bg-red-600 duration-150">حذف
-                        </button>
-                    </div>
-                </div>
-            </div>`
+                            document.getElementById('sunev').innerHTML += `<div class="flex md:w-[750px] w-[400px] h-48 bg-blue-100 rounded-3xl">
+                            <div class="flex flex-row w-full justify-center items-center p-5">
+                                <div class="flex w-1/2 h-full flex-col gap-y-4">
+                                    <h1 class="text-2xl font-bold">${item.title}</h1>
+                                    <p>${item.description}</p>
+                                </div>
+                                <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
+                                    <p class="text-lg font-bold">${item.date}</p>
+                                    <p class="text-lg font-bold">${item.subject}</p>
+                                    <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
+                                        class="w-32 h-10 bg-red-500 rounded-lg text-white hover:bg-red-600 duration-150">حذف
+                                    </button>
+                                </div>
+                            </div>
+                        </div>`
                             break;
 
                         case "Mon":
-                            document.getElementById('monev').innerHTML += `<div class="flex w-full h-48 bg-blue-100 rounded-3xl">
-                <div class="flex flex-row w-full justify-center items-center p-5">
-                    <div class="flex w-1/2 h-full flex-col gap-y-4">
-                        <h1 class="text-2xl font-bold">${item.title}</h1>
-                        <p>${item.description}</p>
-                    </div>
-                    <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
-                        <p class="text-lg font-bold">${item.date}</p>
-                        <p class="text-lg font-bold">${item.subject}</p>
-                        <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
-                            class="w-32 h-10 bg-red-500 mr-96 rounded-lg text-white hover:bg-red-600 duration-150">حذف
-                        </button>
-                    </div>
-                </div>
-            </div>`
+                            document.getElementById('monev').innerHTML += `<div class="flex md:w-[750px] w-[400px] h-48 bg-blue-100 rounded-3xl">
+                            <div class="flex flex-row w-full justify-center items-center p-5">
+                                <div class="flex w-1/2 h-full flex-col gap-y-4">
+                                    <h1 class="text-2xl font-bold">${item.title}</h1>
+                                    <p>${item.description}</p>
+                                </div>
+                                <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
+                                    <p class="text-lg font-bold">${item.date}</p>
+                                    <p class="text-lg font-bold">${item.subject}</p>
+                                    <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
+                                        class="w-32 h-10 bg-red-500 rounded-lg text-white hover:bg-red-600 duration-150">حذف
+                                    </button>
+                                </div>
+                            </div>
+                        </div>`
                             break;
 
                         case "Tue":
-                            document.getElementById('tueev').innerHTML += `<div class="flex w-full h-48 bg-blue-100 rounded-3xl">
-                <div class="flex flex-row w-full justify-center items-center p-5">
-                    <div class="flex w-1/2 h-full flex-col gap-y-4">
-                        <h1 class="text-2xl font-bold">${item.title}</h1>
-                        <p>${item.description}</p>
-                    </div>
-                    <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
-                        <p class="text-lg font-bold">${item.date}</p>
-                        <p class="text-lg font-bold">${item.subject}</p>
-                        <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
-                            class="w-32 h-10 bg-red-500 mr-96 rounded-lg text-white hover:bg-red-600 duration-150">حذف
-                        </button>
-                    </div>
-                </div>
-            </div>`
+                            document.getElementById('tueev').innerHTML += `<div class="flex md:w-[750px] w-[400px] h-48 bg-blue-100 rounded-3xl">
+                            <div class="flex flex-row w-full justify-center items-center p-5">
+                                <div class="flex w-1/2 h-full flex-col gap-y-4">
+                                    <h1 class="text-2xl font-bold">${item.title}</h1>
+                                    <p>${item.description}</p>
+                                </div>
+                                <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
+                                    <p class="text-lg font-bold">${item.date}</p>
+                                    <p class="text-lg font-bold">${item.subject}</p>
+                                    <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
+                                        class="w-32 h-10 bg-red-500 rounded-lg text-white hover:bg-red-600 duration-150">حذف
+                                    </button>
+                                </div>
+                            </div>
+                        </div>`
                             break;
 
                         case "Wed":
-                            document.getElementById('wedev').innerHTML += `<div class="flex w-full h-48 bg-blue-100 rounded-3xl">
-                <div class="flex flex-row w-full justify-center items-center p-5">
-                    <div class="flex w-1/2 h-full flex-col gap-y-4">
-                        <h1 class="text-2xl font-bold">${item.title}</h1>
-                        <p>${item.description}</p>
-                    </div>
-                    <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
-                        <p class="text-lg font-bold">${item.date}</p>
-                        <p class="text-lg font-bold">${item.subject}</p>
-                        <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
-                            class="w-32 h-10 bg-red-500 mr-96 rounded-lg text-white hover:bg-red-600 duration-150">حذف
-                        </button>
-                    </div>
-                </div>
-            </div>`
+                            document.getElementById('wedev').innerHTML += `<div class="flex md:w-[750px] w-[400px] h-48 bg-blue-100 rounded-3xl">
+                            <div class="flex flex-row w-full justify-center items-center p-5">
+                                <div class="flex w-1/2 h-full flex-col gap-y-4">
+                                    <h1 class="text-2xl font-bold">${item.title}</h1>
+                                    <p>${item.description}</p>
+                                </div>
+                                <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
+                                    <p class="text-lg font-bold">${item.date}</p>
+                                    <p class="text-lg font-bold">${item.subject}</p>
+                                    <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
+                                        class="w-32 h-10 bg-red-500 rounded-lg text-white hover:bg-red-600 duration-150">حذف
+                                    </button>
+                                </div>
+                            </div>
+                        </div>`
                             break;
 
                         case "Thu":
-                            document.getElementById('thuev').innerHTML += `<div class="flex w-full h-48 bg-blue-100 rounded-3xl">
-                <div class="flex flex-row w-full justify-center items-center p-5">
-                    <div class="flex w-1/2 h-full flex-col gap-y-4">
-                        <h1 class="text-2xl font-bold">${item.title}</h1>
-                        <p>${item.description}</p>
-                    </div>
-                    <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
-                        <p class="text-lg font-bold">${item.date}</p>
-                        <p class="text-lg font-bold">${item.subject}</p>
-                        <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
-                            class="w-32 h-10 bg-red-500 mr-96 rounded-lg text-white hover:bg-red-600 duration-150">حذف
-                        </button>
-                    </div>
-                </div>
-            </div>`
+                            document.getElementById('thuev').innerHTML += `<div class="flex md:w-[750px] w-[400px] h-48 bg-blue-100 rounded-3xl">
+                            <div class="flex flex-row w-full justify-center items-center p-5">
+                                <div class="flex w-1/2 h-full flex-col gap-y-4">
+                                    <h1 class="text-2xl font-bold">${item.title}</h1>
+                                    <p>${item.description}</p>
+                                </div>
+                                <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
+                                    <p class="text-lg font-bold">${item.date}</p>
+                                    <p class="text-lg font-bold">${item.subject}</p>
+                                    <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
+                                        class="w-32 h-10 bg-red-500 rounded-lg text-white hover:bg-red-600 duration-150">حذف
+                                    </button>
+                                </div>
+                            </div>
+                        </div>`
                             break;
                         case "Fri":
-                            document.getElementById('friev').innerHTML += `<div class="flex w-full h-48 bg-blue-100 rounded-3xl">
-                <div class="flex flex-row w-full justify-center items-center p-5">
-                    <div class="flex w-1/2 h-full flex-col gap-y-4">
-                        <h1 class="text-2xl font-bold">${item.title}</h1>
-                        <p>${item.description}</p>
-                    </div>
-                    <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
-                        <p class="text-lg font-bold">${item.date}</p>
-                        <p class="text-lg font-bold">${item.subject}</p>
-                        <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
-                            class="w-32 h-10 bg-red-500 mr-96 rounded-lg text-white hover:bg-red-600 duration-150">حذف
-                        </button>
-                    </div>
-                </div>
-            </div>`
+                            document.getElementById('friev').innerHTML += `<div class="flex md:w-[750px] w-[400px] h-48 bg-blue-100 rounded-3xl">
+                            <div class="flex flex-row w-full justify-center items-center p-5">
+                                <div class="flex w-1/2 h-full flex-col gap-y-4">
+                                    <h1 class="text-2xl font-bold">${item.title}</h1>
+                                    <p>${item.description}</p>
+                                </div>
+                                <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
+                                    <p class="text-lg font-bold">${item.date}</p>
+                                    <p class="text-lg font-bold">${item.subject}</p>
+                                    <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
+                                        class="w-32 h-10 bg-red-500 rounded-lg text-white hover:bg-red-600 duration-150">حذف
+                                    </button>
+                                </div>
+                            </div>
+                        </div>`
                             break;
 
                         default:

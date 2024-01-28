@@ -37,6 +37,7 @@ const AddWeekProg = () => {
     })
         .then(response => {
             if (response.status == 200) {
+                location.href ='/index.html'
                 showSection(4);
                 return response.json()
             }
