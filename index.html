@@ -29,9 +29,11 @@
                         TITLE</span></label>
                 <div class="flex flex-col gap-y-5">
                     <button onclick="showSection(1);getWeeklyReport()"
-                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد های هفته</button>
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
+                        های هفته</button>
                     <button onclick="showSection(2)"
-                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد های امروز</button>
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
+                        های امروز</button>
                     <button onclick="showSection(3)"
                         class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">ایجاد
                         یک رویداد</button>
@@ -58,7 +60,8 @@
                         <span>FAILED_TO_FETCH</span>
                     </div>
                 </section>
-                <button class="bg-red-500 text-white py-2 rounded-xl" onclick="location.href ='login.html'">خروج از حساب</button>
+                <button class="bg-red-500 text-white py-2 rounded-xl" onclick="location.href ='login.html'">خروج از
+                    حساب</button>
             </section>
             <!-- barname haftegi -->
             <div id="section1" class="w-3/4 p-4 hidden">
@@ -199,7 +202,17 @@
             <!-- weekly program -->
             <div id="section4" class="w-3/4 p-4 ">
                 <h1 class="text-3xl py-5">برنامه هفتگی</h1>
-                <div class="flex justify-center items-center gap-y-5 flex-col">
+                <!-- choose week type -->
+                <div class="flex flex-row items-center gap-x-3">
+                    <span>نوع هفته : </span>
+                    <select id="weektypeShow" onclick="getWeekProgRep()"
+                        class="border border-gray-300 rounded-md px-8 py-2 focus:outline-none focus:border-blue-500">
+                        <option value="false" class="py-2" onclick="getWeekProgRep()">زوج</option>
+                        <option value="true" class="py-2" onclick="getWeekProgRep()">فرد</option>
+                    </select>
+                </div>
+
+                <div class="flex justify-center items-center mt-5 gap-y-5 flex-col">
 
                     <!-- Shanbe -->
                     <div class="flex justify-center items-center w-full flex-col gap-y-3">
@@ -209,7 +222,7 @@
                         <!-- Event section-->
                         <div id="satwp" class="flex w-full justify-center items-center flex-row gap-x-3">
                             <!-- event box -->
-                            
+
                             <!-- end event box -->
                         </div>
                     </div>
