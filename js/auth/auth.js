@@ -1,3 +1,11 @@
+// LOGIN page
+function toggleForm() {
+    var loginForm = document.getElementById("loginForm");
+    var signupForm = document.getElementById("signupForm");
+
+    loginForm.classList.toggle("hidden");
+    signupForm.classList.toggle("hidden");
+}
 // login
 function login() {
     let username = document.getElementById("loginUsername").value;
@@ -14,7 +22,15 @@ function login() {
         credentials: "include",
         body: JSON.stringify(loginReq)
     })
-        .then(response => response.json)
+        .then(response => {
+            if (response.status === 200) {
+                window.alert('خوش آمدید')
+                window.location.href = '/index.html'; // Replace with your actual login page URL
+                return response.json();
+            } else {
+                window.alert('نام کاربری یا رمز عبور اشتباه است .')
+            }
+        })
         .then(loginReq => {
             console.log("Login Success : ", loginReq);
 
@@ -43,7 +59,14 @@ function signup() {
         },
         body: JSON.stringify(signupReq)
     })
-        .then(response => response.json)
+        .then(response => {
+            if (response.status == 201) {
+                window.alert('حساب کاربری ایجاد شد . لطفا وارد شوید');
+                location.href = '/login.html'
+                return response.json()
+            }
+            else (window.alert('لطفا اطلاعات خود را به درستی وارد کنید .'))
+        })
         .then(signupReq => {
             console.log("sign up Success : ", signupReq);
         })

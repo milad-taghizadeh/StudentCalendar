@@ -1,11 +1,3 @@
-// LOGIN page
-function toggleForm() {
-    var loginForm = document.getElementById("loginForm");
-    var signupForm = document.getElementById("signupForm");
-
-    loginForm.classList.toggle("hidden");
-    signupForm.classList.toggle("hidden");
-}
 // index page
 function showSection(sectionNumber) {
     // Hide all sections
@@ -25,7 +17,13 @@ fetch('http://localhost:3000/api/user/', {
         'Cookie': 'accessToken'
     }
 })
-    .then(response => response.json())
+    .then(response => {
+        if (response.status === 401) {
+            window.location.href = '/login.html'; // Replace with your actual login page URL
+        } else {
+            return response.json();
+        }
+    })
     .then(data => {
         console.log(data)
         document.getElementById('username').innerHTML = `<span>نام کاربری : </span><span>${data.username}</span>`

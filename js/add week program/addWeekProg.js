@@ -16,8 +16,8 @@ const AddWeekProg = () => {
         description: description,
         time: time
     };
-    fetch('http://localhost:3000/api/weekProgram', {
-        method: 'POST',
+    fetch(`http://localhost:3000/api/weekProgram?${"isOddWeek=" + weekType}`, {
+        method: 'PUT',
         credentials: 'include',
         headers: {
             'content-type': 'application/json'
