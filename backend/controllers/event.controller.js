@@ -22,7 +22,7 @@ const createEvent = async (req, res) => {
 const deleteEvent = async (req, res) => {
   try {
     const deletedEvent = await Event.findOneAndDelete({
-      title: req.body.title,
+      title: req.query.title,
     });
     res.status(200).json(deletedEvent);
   } catch (err) {
