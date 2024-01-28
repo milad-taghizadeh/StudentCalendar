@@ -18,7 +18,7 @@ const getDailyRep = () => {
                     <div class="flex w-1/2 h-full justify-center flex-col gap-y-5 items-center">
                         <p class="text-lg font-bold">${item.date}</p>
                         <p class="text-lg font-bold">${item.subject}</p>
-                        <button type="submit" id="${item.title}" onclick="deleteEvent(this.id)"
+                        <button type="submit" id="${item.title}" onclick="deleteDailyEvent(this.id)"
                             class="w-32 h-10 bg-red-500 mr-96 rounded-lg text-white hover:bg-red-600 duration-150">حذف
                         </button>
                     </div>
@@ -30,7 +30,7 @@ const getDailyRep = () => {
 }
 getDailyRep();
 // DELETE EVENT
-const deleteEvent = (id) => {
+const deleteDailyEvent = (id) => {
     console.log(id);
     fetch(`http://localhost:3000/api/event/?title=${id}`, {
         method: 'DELETE',
