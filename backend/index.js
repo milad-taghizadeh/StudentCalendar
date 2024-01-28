@@ -7,11 +7,11 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const allowedOrigins = ["http://localhost:5500", "http://127.0.0.1:5500"];
+const allowedOrigins = ["http://localhost", "http://127.0.0.1"];
 
 const corsOptions = {
   origin: (origin, callback) => {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+    if (allowedOrigins.includes(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
