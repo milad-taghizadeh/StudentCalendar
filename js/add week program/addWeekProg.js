@@ -27,7 +27,6 @@ const AddWeekProg = () => {
         .then(response => response.json())
         .then(sendWeekProgReq => {
             console.log(sendWeekProgReq);
-            console.log(time);
         })
         .catch(error => console.error(error));
 }
