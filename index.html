@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./dist/output.css">
     <link rel="stylesheet" href="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
@@ -59,20 +60,22 @@
                 </section>
             </section>
             <!-- admin section -->
-            <div id="section1" class="w-3/4 p-4">
+            <div id="section1" class="w-3/4 p-4 hidden">
                 <h1 class="text-3xl py-5">برنامه کاری هفته</h1>
                 <div class="flex justify-start items-center gap-x-10 py-5">
                     <label for="">
                         <span>از : </span>
-                        <input readonly onclick="jalaliDatepicker.startWatch()" data-jdp class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type=""
-                            name="date" id="sdate"> </label>
+                        <input readonly onclick="jalaliDatepicker.startWatch()" data-jdp
+                            class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="" name="date"
+                            id="sdate"> </label>
                     <label for="">
                         <span>تا : </span>
-                        <input readonly onclick="jalaliDatepicker.startWatch()" data-jdp class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="" name="date"
+                        <input readonly onclick="jalaliDatepicker.startWatch()" data-jdp
+                            class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="" name="date"
                             id="edate"> </label>
-                            <button type="submit" id="refresh"
-                            class="w-32 h-10 bg-sky-400 mr-96 rounded-lg text-white hover:bg-sky-600 duration-150">ثبت
-                        </button>
+                    <button type="submit" id="refresh"
+                        class="w-32 h-10 bg-sky-400 mr-96 rounded-lg text-white hover:bg-sky-600 duration-150">ثبت
+                    </button>
                 </div>
                 <div class="flex justify-center items-center gap-y-5 flex-col">
                     <!-- Shanbe -->
@@ -156,11 +159,11 @@
             </div>
             <!-- barname roozane -->
             <div id="section2" class="w-3/4 p-4 hidden">
-                <h1 class="text-3xl py-5">برنامه روزانه</h1>
+                <h1 class="text-3xl py-5">برنامه امروز</h1>
                 <div class="flex justify-center items-center gap-y-5 flex-col">
                     <!-- Shanbe -->
                     <div id="todayev" class="flex w-full justify-center items-center flex-col gap-y-3">
-                        
+
                     </div>
                 </div>
             </div>
@@ -193,21 +196,71 @@
                 </div>
             </div>
             <div id="section4" class="w-3/4 p-4 hidden">
-                <h2>Section 4</h2>
-                <p>This is the content of section 4.</p>
+                <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                    <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                        <h3>روز شنبه</h3>
+                    </div>
+                </div>
             </div>
-            <div id="section5" class="w-3/4 p-4 hidden">
-                <h2>Section 5</h2>
-                <p>This is the content of section 5.</p>
+            <div id="section5" class="w-3/4 p-4 ">
+                <h1 class="py-5 text-3xl">ایجاد رویداد هفتگی جدید</h1>
+                <div class="flex flex-col gap-y-5">
+                    <!-- choose week type -->
+                    <div class="flex flex-row items-center gap-x-3">
+                        <span>نوع هفته : </span>
+                        <select id="weektype"
+                            class="border border-gray-300 rounded-md px-8 py-2 focus:outline-none focus:border-blue-500">
+                            <option value="false" class="py-2">زوج</option>
+                            <option value="true" class="py-2">فرد</option>
+                        </select>
+                    </div>
+                    <!-- choose day -->
+                    <div class="flex flex-row items-center gap-x-3">
+                        <span>روز هفته : </span>
+                        <select id="day"
+                            class="border border-gray-300 rounded-md px-8 py-2 focus:outline-none focus:border-blue-500">
+                            <option value="sat" class="py-2">شنبه</option>
+                            <option value="sun" class="py-2">یک شنبه</option>
+                            <option value="mon" class="py-2">دو شنبه</option>
+                            <option value="tue" class="py-2">سه شنبه</option>
+                            <option value="wed" class="py-2">چهار شنبه</option>
+                            <option value="thu" class="py-2">پنجشنبه</option>
+                            <option value="fri" class="py-2">جمعه</option>
+                        </select>
+                    </div>
+                    <!-- title -->
+                    <label class="flex felx-row items-center gap-x-3" for="name">
+                        <span>تیتر رویداد : </span>
+                        <input class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="text" name="name"
+                            id="title">
+                    </label>
+                    <!-- description -->
+                    <label class="flex felx-row items-center gap-x-4" for="name">
+                        <span>توضیحات : </span>
+                        <textarea class="border py-5 px-5 border-gray-400 bg-gray-100 rounded-lg" name="" cols="30"
+                            rows="4" id="description"></textarea>
+                    </label>
+                    <!-- time -->
+                    <label class="flex felx-row items-center gap-x-3" for="name">
+                        <span>ساعت : </span>
+                        <input class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="text" name="name"
+                        id="time">
+                    </label>
+                    <!-- submit btn -->
+                    <button type="submit" onclick="AddWeekProg()"
+                        class="flex justify-center items-center w-32 h-10 bg-blue-500 rounded-lg text-white hover:bg-blue-600 duration-150">ثبت</button>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="text/javascript"
+        src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
     <script src="./js/app.js"></script>
+    <script src="./js/add week program/addWeekProg.js"></script>
     <script src="./js/event report/weekly report/weeklyrep.js"></script>
     <script src="./js/event report/daily report/dailyrep.js"></script>
     <script src="./js/add event/addev.js"></script>
-    <script type="text/javascript"
-        src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
 </body>
 
 

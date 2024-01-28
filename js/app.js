@@ -33,3 +33,10 @@ fetch('http://localhost:3000/api/user/', {
         document.getElementById('phonenumber').innerHTML = `<span>شماره تماس : </span><span>${data.phonenumber}</span>`
     })
     .catch(error => console.error(error))
+
+// loading time picker]
+const timePicker = flatpickr("#time", {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "h:i K",
+});
