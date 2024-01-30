@@ -4,21 +4,388 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./dist/output.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./node_modules/swiper/swiper-bundle.min.css" />
-
+    <link rel="stylesheet" href="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
     <title>مهندسی نرم افزار</title>
 
 </head>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
 
-<body class="bg-gray-100 ">
+<body>
+    <div class="container md:w-[2500px] w-full justify-center ">
+        <div class="flex w-full md:flex-row flex-col justify-center gap-x-10 ">
+            <!-- admin side -->
+            <section
+                class="md:flex flex-col md:rounded-xl h-screen gap-y-14 md:w-[400px] w-full hidden px-10 sticky top-0  bg-gray-100 py-4">
+                <label class="flex flex-col justify-center items-center font-extrabold text-2xl" for=""><span>پروژه درس
+                        مهندسی نرم افزار</span></label>
+                <div class="flex flex-col gap-y-5">
+                    <button onclick="showSection(1);getWeeklyReport()"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
+                        های هفته</button>
+                    <button onclick="showSection(2)"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
+                        های امروز</button>
+                    <button onclick="showSection(3)"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">ایجاد
+                        یک رویداد</button>
+                    <button onclick="showSection(4)"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">برنامه
+                        هفتگی
+                    </button>
+                    <button onclick="showSection(5)"
+                        class="flex rounded-md px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">ایجاد
+                        برنامه هفتگی جدید
+                    </button>
+                </div>
+                <section class="flex flex-col gap-y-5">
+                    <div class="flex flex-row gap-x-3" id="username">
+                        <span>نام کاربری : </span>
+                        <span>FAILED_TO_FETCH</span>
+                    </div>
+                    <div class="flex flex-row gap-x-3" id="email">
+                        <span>آدرس ایمیل : </span>
+                        <span>FAILED_TO_FETCH</span>
+                    </div>
+                    <div class="flex flex-row gap-x-3" id="phonenumber">
+                        <span>شماره تماس : </span>
+                        <span>FAILED_TO_FETCH</span>
+                    </div>
+                </section>
+                <button class="bg-red-500 text-white py-2 rounded-xl" onclick="location.href ='login.html'">خروج از
+                    حساب</button>
+            </section>
+            <!-- ADMIN SIDE MOBILE -->
+            <div class="flex flex-row md:hidden p-5 justify-center items-center gap-x-5">
+                <div class="flex flex-row justify-center items-center gap-x-5">
+                    <button onclick="showSection(1);getWeeklyReport()"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
+                        هفته</button>
+                    <button onclick="showSection(2)"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">رویداد
+                        امروز</button>
+                    <button onclick="showSection(3)"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">ایجاد
+                        یک رویداد</button>
+                    <button onclick="showSection(4)"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">برنامه
+                        هفتگی
+                    </button>
+                    <button onclick="showSection(5)"
+                        class="flex rounded-xl px-4 py-2 items-center justify-center bg-gray-500 hover:bg-gray-800 hover:cursor-pointer duration-150 text-white">ایجاد
+                        برنامه هفتگی جدید
+                    </button>
+                </div>
+            </div>
+            <!-- barname haftegi -->
+            <div id="section1" class="w-3/4 p-4 hidden">
+                <h1 class="text-3xl py-5">رویداد های هفته</h1>
+                <div class="flex flex-col md:flex-row justify-start items-center gap-y-5 md:gap-x-10 py-5">
+                    <label for="">
+                        <span>از : </span>
+                        <input readonly onclick="jalaliDatepicker.startWatch()" data-jdp
+                            class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="" name="date"
+                            id="sdate"> </label>
+                    <label for="">
+                        <span>تا : </span>
+                        <input readonly onclick="jalaliDatepicker.startWatch()" data-jdp
+                            class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="" name="date"
+                            id="edate"> </label>
+                    <button type="submit" id="refresh"
+                        class="flex justify-center items-center w-32 h-10 bg-sky-400 py-4 px-10 rounded-lg text-white hover:bg-sky-600 duration-150">ثبت
+                    </button>
+                </div>
+                <div class="flex justify-center items-center gap-y-5 flex-col">
+                    <!-- Shanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز شنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="satev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- Yekshanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز یکشنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="sunev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- doshanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز دوشنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="monev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- seshanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز سه شنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="tueev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- 4shanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز چهارشنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="wedev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- 5shanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز پنجشنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="thuev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- jomee -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز جمعه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="friev" class="flex w-full justify-center items-center flex-col gap-y-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- barname roozane -->
+            <div id="section2" class="w-3/4 p-4 hidden">
+                <h1 class="text-3xl py-5">رویداد امروز</h1>
+                <div class="flex justify-center items-center gap-y-5 flex-col">
+                    <!-- Shanbe -->
+                    <div id="todayev" class="flex w-full justify-center items-center flex-col gap-y-3">
 
+                    </div>
+                </div>
+            </div>
+            <!-- new event -->
+            <div id="section3" class="w-3/4 p-4 hidden">
+                <h1 class="py-5 text-3xl">ایجاد رویداد جدید</h1>
+                <div class="flex flex-col justify-start items-start gap-y-10">
+                    <label class="flex felx-row items-center gap-x-4 justify-center" for="name">
+                        <span>نام رویداد : </span>
+                        <input class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="text" name="name"
+                            id="evname">
+                    </label>
+                    <label class="flex felx-row items-center gap-x-4 justify-center" for="name">
+                        <span>موضوع رویداد : </span>
+                        <input class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="text" name="name"
+                            id="evsub">
+                    </label>
+                    <label class="flex felx-row items-center gap-x-4 justify-center" for="name">
+                        <span>تاریخ : </span>
+                        <input data-jdp class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type=""
+                            name="date" id="evdate">
+                    </label>
+                    <label class="flex felx-row items-center gap-x-4 justify-center" for="name">
+                        <span>توضیحات : </span>
+                        <textarea class="border py-5 px-5 border-gray-400 bg-gray-100 rounded-lg" name="" cols="20"
+                            rows="6" id="evcaption"></textarea>
+                    </label>
+                    <button type="submit" onclick="AddEvent()"
+                        class="flex justify-center items-center w-32 h-10 bg-blue-500 rounded-lg text-white hover:bg-blue-600 duration-150">ثبت</button>
+                </div>
+            </div>
+            <!-- weekly program -->
+            <div id="section4" class="w-3/4 p-4 ">
+                <h1 class="text-3xl py-5">برنامه هفتگی</h1>
+                <!-- choose week type -->
+                <div class="flex flex-row items-center gap-x-3">
+                    <span>نوع هفته : </span>
+                    <select id="weektypeShow" onclick="getWeekProgRep()"
+                        class="border border-gray-300 rounded-md px-8 py-2 focus:outline-none focus:border-blue-500">
+                        <option value="false" class="py-2" onclick="getWeekProgRep()">زوج</option>
+                        <option value="true" class="py-2" onclick="getWeekProgRep()">فرد</option>
+                    </select>
+                </div>
 
+                <div class="flex w-full justify-center items-center mt-5 gap-y-5 flex-col">
 
+                    <!-- Shanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز شنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="satwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
+                            <!-- event box -->
 
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- Yekshanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز یکشنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="sunwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- doshanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز دوشنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="monwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- seshanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز سه شنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="tuewp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- 4shanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز چهارشنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="wedwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- 5shanbe -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز پنجشنبه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="thuwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                    <!-- jomee -->
+                    <div class="flex justify-center items-center w-full flex-col gap-y-3">
+                        <div class="flex w-full h-16 bg-slate-300 rounded-full justify-center items-center font-bold ">
+                            <h3>روز جمعه</h3>
+                        </div>
+                        <!-- Event section-->
+                        <div id="friwp"
+                            class="flex w-full overflow-x-auto justify-center items-center flex-row gap-x-3">
+                            <!-- event box -->
+                            <!-- end event box -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- new weekly program -->
+            <div id="section5" class="w-3/4 p-4 hidden">
+                <h1 class="py-5 text-3xl">ایجاد برنامه هفتگی جدید</h1>
+                <div class="flex flex-col gap-y-5">
+                    <!-- choose week type -->
+                    <div class="flex flex-row items-center gap-x-3">
+                        <span>نوع هفته : </span>
+                        <select id="weektype"
+                            class="border border-gray-300 rounded-md px-8 py-2 focus:outline-none focus:border-blue-500">
+                            <option value="false" class="py-2">زوج</option>
+                            <option value="true" class="py-2">فرد</option>
+                        </select>
+                    </div>
+                    <!-- choose day -->
+                    <div class="flex flex-row items-center gap-x-3">
+                        <span>روز هفته : </span>
+                        <select id="day"
+                            class="border border-gray-300 rounded-md px-8 py-2 focus:outline-none focus:border-blue-500">
+                            <option value="sat" class="py-2">شنبه</option>
+                            <option value="sun" class="py-2">یک شنبه</option>
+                            <option value="mon" class="py-2">دو شنبه</option>
+                            <option value="tue" class="py-2">سه شنبه</option>
+                            <option value="wed" class="py-2">چهار شنبه</option>
+                            <option value="thu" class="py-2">پنجشنبه</option>
+                            <option value="fri" class="py-2">جمعه</option>
+                        </select>
+                    </div>
+                    <!-- title -->
+                    <label class="flex felx-row items-center gap-x-3" for="name">
+                        <span>تیتر رویداد : </span>
+                        <input class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="text" name="name"
+                            id="title">
+                    </label>
+                    <!-- description -->
+                    <label class="flex felx-row items-center gap-x-4" for="name">
+                        <span>توضیحات : </span>
+                        <textarea class="border py-5 px-5 border-gray-400 bg-gray-100 rounded-lg" name="" cols="30"
+                            rows="4" id="description"></textarea>
+                    </label>
+                    <!-- time -->
+                    <label class="flex felx-row items-center gap-x-3" for="name">
+                        <span>ساعت : </span>
+                        <input class="py-2 px-5 rounded-lg border border-gray-400 bg-gray-100" type="text" name="name"
+                            id="time">
+                    </label>
+                    <!-- submit btn -->
+                    <button type="submit" onclick="AddWeekProg()"
+                        class="flex justify-center items-center w-32 h-10 bg-blue-500 rounded-lg text-white hover:bg-blue-600 duration-150">ثبت</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="text/javascript"
+        src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
     <script src="./js/app.js"></script>
+    <script src="./js/week program report/weekprogrep.js"></script>
+    <script src="./js/add week program/addWeekProg.js"></script>
+    <script src="./js/event report/weekly report/weeklyrep.js"></script>
+    <script src="./js/event report/daily report/dailyrep.js"></script>
+    <script src="./js/add event/addev.js"></script>
 </body>
+
 
 </html>

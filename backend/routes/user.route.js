@@ -1,9 +1,6 @@
 // dependency imports
 const router = require("express").Router();
-const {
-  verifyTokenAndAdmin,
-  verifyTokenAndAuth,
-} = require("../middleware/verify_token");
+const { verifyTokenAndAuth } = require("../middleware/verify_token");
 const controller = require("../controllers/users.controller");
 
 //UPDATE router
