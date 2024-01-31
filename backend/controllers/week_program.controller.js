@@ -87,7 +87,6 @@ const getProgram = async (req, res) => {
 };
 
 module.exports = {
-  createProgram,
   updateProgram,
   getProgram,
 };
