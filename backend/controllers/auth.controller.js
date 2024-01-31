@@ -1,5 +1,6 @@
 // dependency imports
 const User = require("../models/user.model");
+const weekProgram = require("../models/week_program.model");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
@@ -24,6 +25,20 @@ const registerController = async (req, res) => {
 
     // save the user in DB
     const savedUser = await newUser.save();
+
+    // set week program
+    const oddProgram = new weekProgram();
+    const evenProgram = new weekProgram();
+
+    oddProgram.user_id = savedUser._id;
+    evenProgram.user_id = savedUser._id;
+
+    oddProgram.isOddWeek = true;
+    evenProgram.isOddWeek = false;
+
+    await oddProgram.save();
+    await evenProgram.save();
+
     // set the response
     res.status(201).json(others);
   } catch (err) {

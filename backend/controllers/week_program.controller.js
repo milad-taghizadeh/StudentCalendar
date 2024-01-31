@@ -1,23 +1,5 @@
 const weekProgram = require("../models/week_program.model");
 
-const createProgram = async (req, res) => {
-  try {
-    const userProgram = await weekProgram.find({ user_id: req.user.id });
-    if (userProgram.length >= 2) {
-      return res.status(400).json("you cant have more the 2 week programs");
-    }
-
-    const program = new weekProgram(req.body);
-    program.user_id = req.user.id;
-    const savedProgram = await program.save();
-
-    res.status(200).json(savedProgram);
-  } catch (err) {
-    res.status(400).json(err);
-    console.log(err);
-  }
-};
-
 const updateProgram = async (req, res) => {
   try {
     const updatedProgram = await weekProgram.findOne({
