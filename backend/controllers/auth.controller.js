@@ -44,7 +44,6 @@ const registerController = async (req, res) => {
   } catch (err) {
     // return the err if there is one
     res.status(400).json(err);
-    req.err = err;
   }
 };
 
@@ -60,7 +59,7 @@ const logInController = async (req, res) => {
     if (user == null) {
       res.status(401).json(" Wrong UserName or password 1 !!");
     } else {
-      // if we found a user with that username
+      // if we found a user with that email
 
       // decrypt the PASSWORD from the DB user
       const hashedPassword = CryptoJS.AES.decrypt(
@@ -104,7 +103,6 @@ const logInController = async (req, res) => {
   } catch (err) {
     // return the err if there is one
     res.status(400).json(err);
-    req.err = err;
     console.log(err);
   }
 };
