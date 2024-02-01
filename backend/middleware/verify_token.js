@@ -8,6 +8,7 @@ const verifyToken = (req, res, next) => {
   if (req.cookies?.accessToken) {
     //get the TOKEN from the cookies
     const token = req.cookies.accessToken;
+
     // verify the TOKEN
     jwt.verify(token, process.env.JWT_SEC_KEY, (err, user) => {
       if (err) {

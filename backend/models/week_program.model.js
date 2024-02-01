@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // create the mongoose schema
 const weekProgramSchema = mongoose.Schema({
   user_id: { type: mongoose.ObjectId, ref: "User" },
-  isOddWeek: { type: Boolean, default: false },
+  isOddWeek: { type: Boolean },
   week: {
     sat: [
       {
