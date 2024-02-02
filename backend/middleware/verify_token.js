@@ -12,7 +12,7 @@ const verifyToken = (req, res, next) => {
     // verify the TOKEN
     jwt.verify(token, process.env.JWT_SEC_KEY, (err, user) => {
       if (err) {
-        res.status(403).json(err);
+        res.status(401).json(err);
       } else {
         req.user = user;
         next();
